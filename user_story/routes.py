@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, redirect, url_for
 from user_story.forms import RegistrationForm, LoginForm
 from user_story import app
 
@@ -28,3 +28,19 @@ stories = [
 @app.route('/')
 def home():
     return render_template('home.html', stories=stories)
+
+
+@app.route('/register')
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        return redirect(url_for('home'))
+    return render_template('register.html', form=form)
+
+
+@app.route('/login')
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        return redirect(url_for('home'))
+    return render_template('register.html', form=form)
