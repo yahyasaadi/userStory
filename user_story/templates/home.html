@@ -2,4 +2,10 @@
 
 {% block content %}
     <h1>Yes it is running!</h1>
+    {% for story in stories %}
+        <h3>{{ story.author }}</h3>
+        <p>{{ story.title }}</p>
+        <p>{{ story.content }}</p>
+    {% endfor %}
+    
 {% endblock %}
