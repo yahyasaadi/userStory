@@ -1,11 +1,19 @@
 from datetime import datetime
-from user_story import db
+from user_story import db, login_manager
+from flask_login import UserMixin
 
-class User(db.Model):
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+
+
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    passwod = db.Column(db.String(40), nullable=False)
+    passwod = db.Column(db.String(100), nullable=False)
     quotes = db.relationship('Quote', backref='author', lazy=True)
 
 
