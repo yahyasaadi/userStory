@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Yes it is running!</h1>
-    {% for story in stories %}
-        <h3>{{ story.author }}</h3>
-        <p>{{ story.title }}</p>
-        <p>{{ story.content }}</p>
+    {% for quote in quotes %}
+        <article class="media content-section mt-3">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2">{{ quote.author.username }}</a>
+                    <small class="text-muted">{{ quote.date_posted.strftime('%Y-%m-%d') }}</small>
+                </div>
+                <h2>{{ quote.category }}</h2>
+                <p class="article-content">{{ quote.content }}</p>
+            </div>
+        </article>
     {% endfor %}
     
 {% endblock %}
