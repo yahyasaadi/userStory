@@ -8,3 +8,17 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+
+.content-article{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-section{
+    padding-left: 2rem;
+    margin-left: 4rem;
+    background-color: antiquewhite;
+    width: 50vw;
+}

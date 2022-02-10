@@ -2,8 +2,8 @@
 
 {% block content %}
     {% for quote in quotes %}
-        <article class="media content-section mt-3">
-            <div class="media-body">
+        <article class="media content-article mt-3">
+            <div class="content-section">
                 <div class="article-metadata">
                     <a class="mr-2">{{ quote.author.username }}</a>
                     <small class="text-muted">{{ quote.date_posted.strftime('%Y-%m-%d') }}</small>
