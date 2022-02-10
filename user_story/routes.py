@@ -14,7 +14,7 @@ def create_tables():
 @app.route('/')
 def home():
     quotes = Quote.query.all()
-    return render_template('home.html', title='Home', stories=stories, quotes=quotes)
+    return render_template('home.html', title='Home', quotes=quotes)
 
 
 @app.route('/register', methods=['GET', 'POST'])
