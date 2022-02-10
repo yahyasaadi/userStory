@@ -5,27 +5,11 @@ from user_story.models import User, Quote
 from flask_login import login_user, current_user, logout_user, login_required
 
 
-stories = [
-    {
-        'author': 'Yahya Saadi',
-        'title': 'Pickup line',
-        'content': 'Well here I am. What are your other two wishes'
-    },
-    {
-        'author': 'Home',
-        'title': 'Pickup line',
-        'content': "Hey, my name's Microsoft. Can I crash at your place tonight?"
-    },
-    {
-        'author': 'Stewie',
-        'title': 'Pickup line',
-        'content': "Are you French? Because Eiffel for you."
-    }
-]
 
 
-
-
+@app.before_first_request
+def create_tables():
+    db.create_all()
 
 @app.route('/')
 def home():
